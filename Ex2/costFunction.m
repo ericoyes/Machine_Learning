@@ -20,11 +20,20 @@ grad = zeros(size(theta));
 % Note: grad should have the same dimensions as theta
 %
 
+predictions = sigmoid(X * theta);
+sumVector = -(y' * log(predictions)) - (1-y)' * log( 1 - predictions);
+J = (1/m) * sum(sumVector);
 
 
 
+%for i=1 : size(theta,1),
 
+%	grad(i) = (1/m) * sum( (predictions - y ) .* X(:,i));
 
+%end;
+
+%Vectorized gradient:
+grad = X' * (predictions - y)/m;
 
 
 % =============================================================
