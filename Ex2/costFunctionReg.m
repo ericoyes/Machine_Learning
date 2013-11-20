@@ -25,8 +25,7 @@ predictions = sigmoid(X * theta);
 
 
 
-J = (1/m) * sum(-y .* log(predictions) - (1 - y) .* log(1 - predictions)) + ...
-    lambda / (2*m) * theta0' * theta0;
+J = (1/m) * sum(-y .* log(predictions) - (1 - y) .* log(1 - predictions)) + lambda / (2*m) * theta0' * theta0;
 
 grad = (1/m) * (X' * (predictions - y) + lambda * theta0);
 
